@@ -56,6 +56,15 @@ export class DirectThreadEntity extends Entity {
     });
   }
 
+  public async broadcastPost(media_id: string) {
+    return await this.broadcast({
+      item: 'media_share',
+      form: {
+        media_id,
+      },
+    });
+  }
+
   /**
    * This is used when sharing a story (app: plane/share button) to a thread
    * @param options
